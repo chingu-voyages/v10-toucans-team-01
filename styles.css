@@ -1,0 +1,36 @@
+.header-container{
+    display: flex;
+    flex-direction: row;
+    background-color: #eb1736;
+    margin: 0;
+    box-shadow: 0 5px 5px #eb1736;
+}
+
+.icon-container {
+    width: 10em;
+    height: 10em;
+    justify-content: center;
+    margin-right: 11em;
+}
+
+.icon-container img {
+    width: 100%;
+    height: auto;
+    padding-left: 8%;
+    filter: drop-shadow(2px 2px 3px #333)
+}
+
+.app-name {
+    margin-top: 3%;
+    font-size: 72px;
+    text-shadow: 1px 1px 2px #1d1e22;
+    color: #1d1e22;
+}
+
+.header-container button {
+    background-color: #eb1736;
+    margin: 2em 1em 2em 15em;
+    padding: 3px 7px 3px 7px;
+    border-radius: 8px;
+    
+}
