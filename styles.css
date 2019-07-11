@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 /* body{
   background-color: #eb1736;
 }
@@ -42,16 +43,39 @@ html {
     justify-content: center;
     margin-right: 23em;
 >>>>>>> 6929b3a6d8631eea2956320b80634271b93ff7fb
+=======
+html {
+  font-size: 62.5%;
+}
+
+.header-container {
+  display: flex;
+  flex-direction: row;
+  background-color: #eb1736;
+  margin: 0;
+  padding-top: 1rem;
+  padding-bottom: 4rem;
+  margin: 0 0 0 0;
+  box-shadow: 0 5px 5px #eb1736;
+}
+
+.icon-container {
+  width: 10em;
+  height: 10em;
+  justify-content: center;
+  margin-right: 11em;
+>>>>>>> 701bffdb4535851aa25c70f483f38c68a43f2156
 }
 
 .icon-container img {
-    width: 100%;
-    height: auto;
-    padding-left: 8%;
-    filter: drop-shadow(2px 2px 3px #333)
+  width: 100%;
+  height: auto;
+  padding-left: 8%;
+  filter: drop-shadow(2px 2px 3px #333);
 }
 
 .app-name {
+<<<<<<< HEAD
 <<<<<<< HEAD
     margin-top: 3%;
     font-size: 72px;
@@ -79,3 +103,23 @@ html {
     
 }
 >>>>>>> 6929b3a6d8631eea2956320b80634271b93ff7fb
+=======
+  margin-top: 3%;
+  font-size: 72px;
+  margin-right: 2.5em;
+  font-size: 7.2rem;
+  padding-top: 1rem;
+  text-shadow: 1px 1px 2px #1d1e22;
+  color: #1d1e22;
+}
+
+.header-container button {
+  background-color: #eb1736;
+  margin: 2em 1em 2em 15em;
+  padding: 0;
+  border-radius: 8px;
+  margin: 3em 1em 1em 15em;
+  padding: 2.5rem 2.5rem 2.5rem 2.5rem;
+  border-radius: 8px;
+}
+>>>>>>> 701bffdb4535851aa25c70f483f38c68a43f2156
