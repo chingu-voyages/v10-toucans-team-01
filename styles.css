@@ -1,0 +1,43 @@
+html {
+    font-size: 62.5%;
+}
+
+.header-container{
+    display: flex;
+    flex-direction: row;
+    background-color: #eb1736;
+    padding-top: 1rem;
+    padding-bottom: 4rem;
+    margin: 0 0 0 0;
+    box-shadow: 0 5px 5px #eb1736;
+}
+
+.icon-container {
+    width: 15em;
+    height: 8em;
+    justify-content: center;
+    margin-right: 23em;
+}
+
+.icon-container img {
+    width: 100%;
+    height: auto;
+    padding-left: 8%;
+    filter: drop-shadow(2px 2px 3px #333)
+}
+
+.app-name {
+    margin-right: 2.5em;
+    font-size: 7.2rem;
+    padding-top: 1rem;
+    text-shadow: 1px 1px 2px #1d1e22;
+    color: #1d1e22;
+}
+
+.header-container button {
+    background-color: #eb1736;
+    margin: 3em 1em 1em 15em;
+    padding: 2.5rem 2.5rem 2.5rem 2.5rem;
+    border-radius: 8px;
+    
+}
