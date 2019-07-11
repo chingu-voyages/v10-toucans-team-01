@@ -9,7 +9,6 @@ html {
   margin: 0;
   padding-top: 1rem;
   padding-bottom: 4rem;
-  margin: 0 0 0 0;
   box-shadow: 0 5px 5px #eb1736;
 }
 
@@ -39,9 +38,6 @@ html {
 
 .header-container button {
   background-color: #eb1736;
-  margin: 2em 1em 2em 15em;
-  padding: 0;
-  border-radius: 8px;
   margin: 3em 1em 1em 15em;
   padding: 2.5rem 2.5rem 2.5rem 2.5rem;
   border-radius: 8px;
