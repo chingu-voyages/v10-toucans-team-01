@@ -1,3 +1,4 @@
+ addExerciseButton
 /* body{
   background-color: #eb1736;
 }
@@ -9,19 +10,38 @@ h1{
   transform: translate(-50%, -50%);
 } */
 
+
+html {
+    font-size: 62.5%;
+}
+
+ master
 .header-container{
     display: flex;
     flex-direction: row;
     background-color: #eb1736;
+ addExerciseButton
     margin: 0;
+
+    padding-top: 1rem;
+    padding-bottom: 4rem;
+    margin: 0 0 0 0;
+ master
     box-shadow: 0 5px 5px #eb1736;
 }
 
 .icon-container {
+ addExerciseButton
     width: 10em;
     height: 10em;
     justify-content: center;
     margin-right: 11em;
+
+    width: 15em;
+    height: 8em;
+    justify-content: center;
+    margin-right: 23em;
+ master
 }
 
 .icon-container img {
@@ -32,16 +52,30 @@ h1{
 }
 
 .app-name {
+ addExerciseButton
     margin-top: 3%;
     font-size: 72px;
+
+    margin-right: 2.5em;
+    font-size: 7.2rem;
+    padding-top: 1rem;
+ master
     text-shadow: 1px 1px 2px #1d1e22;
     color: #1d1e22;
 }
 
 .header-container button {
     background-color: #eb1736;
+ addExerciseButton
     margin: 2em 1em 2em 15em;
     padding: 0;
     border-radius: 8px;
 
 }
+
+    margin: 3em 1em 1em 15em;
+    padding: 2.5rem 2.5rem 2.5rem 2.5rem;
+    border-radius: 8px;
+    
+}
+ master
