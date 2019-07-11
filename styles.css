@@ -3,14 +3,14 @@ html {
     font-size: 62.5%;
 }
 
-.header-container{
-    display: flex;
-    flex-direction: row;
-    background-color: #eb1736;
-    margin: 0;
-    padding-top: 1rem;
-    padding-bottom: 4rem;
-    box-shadow: 0 5px 5px #eb1736;
+.header-container {
+  display: flex;
+  flex-direction: row;
+  background-color: #eb1736;
+  margin: 0;
+  padding-top: 1rem;
+  padding-bottom: 4rem;
+  box-shadow: 0 5px 5px #eb1736;
 }
 
 .icon-container {
@@ -38,8 +38,8 @@ html {
 }
 
 .header-container button {
-    background-color: #eb1736;
-    margin: 3em 1em 1em 15em;
-    padding: 2.5rem 2.5rem 2.5rem 2.5rem;
-    border-radius: 8px;
+  background-color: #eb1736;
+  margin: 3em 1em 1em 15em;
+  padding: 2.5rem 2.5rem 2.5rem 2.5rem;
+  border-radius: 8px;
 }
