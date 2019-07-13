@@ -18,7 +18,7 @@
         <button type="button" data-toggle="modal" data-target="#form-modal">Create</button>
       </header>
 
-     
+      <!-- CODE FOR MODAL -->
       <div class="modal fade" id="form-modal">
         <div class="modal-dialog modal-dialog-scrollable">
           <div class="modal-content p-4">
@@ -34,7 +34,7 @@
                   <h4>Monday</h4>
                   <div class="form-check">
                     <input class="form-check-input" type="checkbox"></input>
-                    <label>Rest day</label>
+                    <label class="ml-3">Rest day</label>
                   </div>
                   <div class="form-row">
                     <div class="col">
@@ -54,7 +54,7 @@
                       <input type="number" class="form-control">
                     </div>
                   </div>
-                  <button type="button" onclick="onAddExercise()" class="add-exercise btn btn-success mb-2 mt-3" id="add-monday-exercise">Add Exercise</button>
+                  <button type="button" onclick="onAddExercise()" class="add-exercise btn btn-success mb-2 mt-3" id="add-monday-exercise">Add Another Exercise</button>
                   <hr>
                 </div>
 
@@ -62,7 +62,7 @@
                   <h4>Tuesday</h4>
                   <div class="form-check">
                     <input class="form-check-input" type="checkbox"></input>
-                    <label>Rest day</label>
+                    <label class="ml-3">Rest day</label>
                   </div>
                   <div class="form-row">
                     <div class="col">
@@ -82,7 +82,7 @@
                       <input type="number" class="form-control">
                     </div>
                   </div>
-                  <button type="button" onclick="onAddExercise()" class="add-exercise btn btn-success mb-2 mt-3" id="add-tuesday-exercise">Add Exercise</button>
+                  <button type="button" onclick="onAddExercise()" class="add-exercise btn btn-success mb-2 mt-3" id="add-tuesday-exercise">Add Another Exercise</button>
                   <hr>
                 </div>
 
@@ -90,7 +90,7 @@
                   <h4>Wednesday</h4>
                   <div class="form-check">
                     <input class="form-check-input" type="checkbox"></input>
-                    <label>Rest day</label>
+                    <label class="ml-3">Rest day</label>
                   </div>
                   <div class="form-row">
                     <div class="col">
@@ -110,7 +110,7 @@
                       <input type="number" class="form-control">
                     </div>
                   </div>
-                  <button type="button" onclick="onAddExercise()" class="add-exercise btn btn-success mb-2 mt-3" id="add-wednesday-exercise">Add Exercise</button>
+                  <button type="button" onclick="onAddExercise()" class="add-exercise btn btn-success mb-2 mt-3" id="add-wednesday-exercise">Add Another Exercise</button>
                   <hr>
                 </div>
 
@@ -118,7 +118,7 @@
                   <h4>Thursday</h4>
                   <div class="form-check">
                     <input class="form-check-input" type="checkbox"></input>
-                    <label>Rest day</label>
+                    <label class="ml-3">Rest day</label>
                   </div>
                   <div class="form-row">
                     <div class="col">
@@ -138,7 +138,7 @@
                       <input type="number" class="form-control">
                     </div>
                   </div>
-                  <button type="button" onclick="onAddExercise()" class="add-exercise btn btn-success mb-2 mt-3" id="add-thursday-exercise">Add Exercise</button>
+                  <button type="button" onclick="onAddExercise()" class="add-exercise btn btn-success mb-2 mt-3" id="add-thursday-exercise">Add Another Exercise</button>
                   <hr>
                 </div>
 
@@ -146,7 +146,7 @@
                   <h4>Friday</h4>
                   <div class="form-check">
                     <input class="form-check-input" type="checkbox"></input>
-                    <label>Rest day</label>
+                    <label class="ml-3">Rest day</label>
                   </div>
                   <div class="form-row">
                     <div class="col">
@@ -166,7 +166,7 @@
                       <input type="number" class="form-control">
                     </div>
                   </div>
-                  <button type="button" onclick="onAddExercise()" class="add-exercise btn btn-success mb-2 mt-3" id="add-friday-exercise">Add Exercise</button>
+                  <button type="button" onclick="onAddExercise()" class="add-exercise btn btn-success mb-2 mt-3" id="add-friday-exercise">Add Another Exercise</button>
                   <hr>
                 </div>
 
@@ -174,7 +174,7 @@
                   <h4>Saturday</h4>
                   <div class="form-check">
                     <input class="form-check-input" type="checkbox"></input>
-                    <label>Rest day</label>
+                    <label class="ml-3">Rest day</label>
                   </div>
                   <div class="form-row">
                     <div class="col">
@@ -194,7 +194,7 @@
                       <input type="number" class="form-control">
                     </div>
                   </div>
-                  <button type="button" onclick="onAddExercise()" class="add-exercise btn btn-success mb-2 mt-3" id="add-saturday-exercise">Add Exercise</button>
+                  <button type="button" onclick="onAddExercise()" class="add-exercise btn btn-success mb-2 mt-3" id="add-saturday-exercise">Add Another Exercise</button>
                   <hr>
                 </div>
 
@@ -202,7 +202,7 @@
                   <h4>Sunday</h4>
                   <div class="form-check">
                     <input class="form-check-input" type="checkbox"></input>
-                    <label>Rest day</label>
+                    <label class="ml-3">Rest day</label>
                   </div>
                   <div class="form-row">
                     <div class="col">
@@ -222,18 +222,66 @@
                       <input type="number" class="form-control">
                     </div>
                   </div>
-                  <button type="button" onclick="onAddExercise()" class="add-exercise btn btn-success mb-2 mt-3" id="add-sunday-exercise">Add Exercise</button>
+                  <button type="button" onclick="onAddExercise()" class="add-exercise btn btn-success mb-2 mt-3" id="add-sunday-exercise">Add Another Exercise</button>
                   <hr>
                 </div>
               </form>
             </div>
             <div class="modal-footer d-flex justify-content-between">
-              <button class="create-workout btn btn-primary">Create Workout</button>
-              <button class="btn btn-danger" data-dismiss="modal">Close</button>
+              <button class="mt-3 create-workout btn btn-primary"data-dismiss="modal" onclick="onCreateWorkout()">Create Workout</button>
+              <button class="mt-3 btn btn-danger" data-dismiss="modal">Close</button>
             </div>
           </div>
         </div>
       </div>
+
+
+      <section id="display-workout-section">
+        <div class="workout-container">
+          <div id="monday-workout d-flex">
+            <h5>Monday</h5>
+            <p></p>
+            <p></p>
+            <p></p>
+          </div>
+          <div id="tuesday-workout d-flex">
+            <h5>Tuesday</h5>
+            <p></p>
+            <p></p>
+            <p></p>
+          </div>
+          <div id="wednesday-workout d-flex">
+            <h5>Wednesday</h5>
+            <p></p>
+            <p></p>
+            <p></p>
+          </div>
+          <div id="thursday-workout d-flex">
+            <h5>Thursday</h5>
+            <p></p>
+            <p></p>
+            <p></p>
+          </div>
+          <div id="friday-workout d-flex">
+            <h5>Friday</h5>
+            <p></p>
+            <p></p>
+            <p></p>
+          </div>
+          <div id="saturday-workout d-flex">
+            <h5>Saturday</h5>
+            <p></p>
+            <p></p>
+            <p></p>
+          </div>
+          <div id="sunday-workout d-flex">
+            <h5>Sunday</h5>
+            <p></p>
+            <p></p>
+            <p></p>
+          </div>
+        </div>
+      </section>
 
       <footer>
         </footer>
