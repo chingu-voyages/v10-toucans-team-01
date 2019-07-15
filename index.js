@@ -1,5 +1,10 @@
-const onAddExercise = function onAddExercise(){
 
+// TO DO:
+// 2. NEED TO WRITE A FUNCTION THAT WILL TAKE IN EXERCISE, SETS, REPS, WEIGHT AND ORGANIZES INTO DOM
+// 3. NEED TO CALL THIS FUNCTION WITH VALUES FROM FORM DATA
+
+
+const onAddExercise = function onAddExercise(){
   // get element id
   const id = event.target.id;
 
@@ -20,27 +25,40 @@ const onAddExercise = function onAddExercise(){
 
 
 
-
-const onCreateWorkout = function onCreateWorkout (){
+const onCreateWorkout = function onCreateWorkout (event){
 
   // GETTING FORM
   const displaySection = document.getElementById('display-workout-section');
   console.log(document.getElementById('workout-form'));
   const form = document.getElementById('workout-form');
 
-// CYCLING THROUGH ELEMENTS IN FORM
-  for(let i = 0; i < form.length; i++){
-    let day = form[i].parentElement.previousElementSibling;
-    console.log(day);
-    if(form[i].type === 'checkbox' && form[i].checked === true){
-      let day = form[i].parentElement.previousElementSibling.innerText.toLowerCase();
-      // let workoutDisplayDay = document.getElementById(`${day}-workout`);
-      // console.log(workoutDisplayDay)
+  const request = new XMLHttpRequest();
 
-      // CANNOT GET WORKOUT DAYS, I THINK BECAUSE IT IS NOT YET IN THE DOM
-      console.log(document.getElementById('monday-workout'))
-    }
-  }
+  request.open('POST', 'https://httpbin.org/post', /* async = */ false);
+  const data = new FormData(form);
+
+  request.send(data);
+  console.log(request.response);
 
   displaySection.style.display = 'block';
+}
+
+
+
+// FUNCTION TO DISABLE BUTTONS WHEN REST DAY IS CHECKED
+const disableButtons = function disableButtons(inputClass) {
+
+  const inputs = document.getElementsByClassName(inputClass);
+
+  // TAKES OUT -NON TO GET "NAME" ATTRIBUTE OF DAY;
+  const index = inputClass.indexOf('-non');
+  const nameAttrName = inputClass.slice(0, index) + inputClass.slice(index + 4);
+
+  // GET CHECKBOX INPUT FOR SPECIFIC DAY
+  const restDay = document.getElementsByName(nameAttrName);
+
+  // TOGGLE THE DISABLE
+  for(const obj of inputs){
+      obj.disabled = restDay[0].checked;
+  }
 }

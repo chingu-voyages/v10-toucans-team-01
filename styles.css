@@ -45,4 +45,5 @@ html {
 
 #display-workout-section{
   display: none;
+  /* visibility: hidden; */
 }
