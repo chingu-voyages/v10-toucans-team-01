@@ -1,6 +1,7 @@
 
 // TO DO:
 // 2. NEED TO WRITE A FUNCTION THAT WILL TAKE IN EXERCISE, SETS, REPS, WEIGHT AND ORGANIZES INTO DOM
+// OR FUNCTION TAKES IN CLASS NAME AND HTML VALUE SINCE THOSE ARE THEY KEY VALUE PAIRS
 // 3. NEED TO CALL THIS FUNCTION WITH VALUES FROM FORM DATA
 
 
@@ -29,7 +30,6 @@ const onCreateWorkout = function onCreateWorkout (event){
 
   // GETTING FORM
   const displaySection = document.getElementById('display-workout-section');
-  console.log(document.getElementById('workout-form'));
   const form = document.getElementById('workout-form');
 
   const request = new XMLHttpRequest();
@@ -39,6 +39,15 @@ const onCreateWorkout = function onCreateWorkout (event){
 
   request.send(data);
   console.log(request.response);
+
+  // TRYING TO FIGURE OUT HOW TO ACCESS FORM DATA
+  // console.log(request.response.form);
+  // const createdWorkout = request.response.form;
+
+// ONCE I CAN ACCESS THE FORM DATA I NEED TO CALL FUNCTION IN THIS LOOP TO INSERT ELEMNTS INTO DOM
+  // for(const key in createdWorkout){
+  //   console.log(key);
+  // }
 
   displaySection.style.display = 'block';
 }
