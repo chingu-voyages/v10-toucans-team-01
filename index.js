@@ -3,6 +3,7 @@
 // 2. NEED TO WRITE A FUNCTION THAT WILL TAKE IN EXERCISE, SETS, REPS, WEIGHT AND ORGANIZES INTO DOM
 // OR FUNCTION TAKES IN CLASS NAME AND HTML VALUE SINCE THOSE ARE THEY KEY VALUE PAIRS
 // 3. NEED TO CALL THIS FUNCTION WITH VALUES FROM FORM DATA
+// 4. NEED TO CLEAR FORM AFTER SUBMISSION
 
 
 const onAddExercise = function onAddExercise(){
@@ -25,35 +26,6 @@ const onAddExercise = function onAddExercise(){
 }
 
 
-
-const onCreateWorkout = function onCreateWorkout (event){
-
-  // GETTING FORM
-  const displaySection = document.getElementById('display-workout-section');
-  const form = document.getElementById('workout-form');
-
-  const request = new XMLHttpRequest();
-
-  request.open('POST', 'https://httpbin.org/post', /* async = */ false);
-  const data = new FormData(form);
-
-  request.send(data);
-  console.log(request.response);
-
-  // TRYING TO FIGURE OUT HOW TO ACCESS FORM DATA
-  // console.log(request.response.form);
-  // const createdWorkout = request.response.form;
-
-// ONCE I CAN ACCESS THE FORM DATA I NEED TO CALL FUNCTION IN THIS LOOP TO INSERT ELEMNTS INTO DOM
-  // for(const key in createdWorkout){
-  //   console.log(key);
-  // }
-
-  displaySection.style.display = 'block';
-}
-
-
-
 // FUNCTION TO DISABLE BUTTONS WHEN REST DAY IS CHECKED
 const disableButtons = function disableButtons(inputClass) {
 
@@ -70,4 +42,54 @@ const disableButtons = function disableButtons(inputClass) {
   for(const obj of inputs){
       obj.disabled = restDay[0].checked;
   }
+}
+
+
+
+const insertExercise = function insertExercise (key, value){
+
+// CHECK IF IT IS REST DAY AND INSERT 'REST DAY' INTO DOM
+  if(value === 'on'){
+    let day = key.split('-')[0];
+    const restDay = document.getElementById(`${day}-display`);
+    const rest = document.createElement('p');
+    rest.innerText = 'Rest day';
+    restDay.insertAdjacentElement('afterend', rest);
+  }
+
+// NEED TO WRITE CODE TO PUT EXERCISES INTO DOM
+
+}
+
+
+const onCreateWorkout = function onCreateWorkout (event){
+
+  // GETTING FORM
+  const displaySection = document.getElementById('display-workout-section');
+  const form = document.getElementById('workout-form');
+
+  const request = new XMLHttpRequest();
+
+  request.open('POST', 'https://httpbin.org/post', /* async = */ false);
+  const data = new FormData(form);
+
+  request.send(data);
+
+  console.log(JSON.parse(request.response).form);
+
+// PARSES RESPONSE TO JSON AND THEN GETS FORM
+  const createdWorkout = JSON.parse(request.response).form
+
+
+
+// ONCE I CAN ACCESS THE FORM DATA I NEED TO CALL FUNCTION IN THIS LOOP TO INSERT ELEMNTS INTO DOM
+  for(const key in createdWorkout){
+    const value = createdWorkout[key];
+    console.log(key);
+    console.log(createdWorkout[key])
+
+    insertExercise(key, value);
+  }
+
+  displaySection.style.display = 'block';
 }
