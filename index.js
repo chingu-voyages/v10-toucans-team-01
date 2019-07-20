@@ -1,10 +1,7 @@
 
 // TO DO:
-// 2. NEED TO WRITE A FUNCTION THAT WILL TAKE IN EXERCISE, SETS, REPS, WEIGHT AND ORGANIZES INTO DOM
-// OR FUNCTION TAKES IN CLASS NAME AND HTML VALUE SINCE THOSE ARE THEY KEY VALUE PAIRS
-// 3. NEED TO CALL THIS FUNCTION WITH VALUES FROM FORM DATA
 // 4. NEED TO CLEAR FORM AFTER SUBMISSION
-
+// 5. VALIDATE FORM AND REQUIRE ALL FIELDS BE FILLED OUT
 
 const onAddExercise = function onAddExercise(){
   // get element id
@@ -48,17 +45,39 @@ const disableButtons = function disableButtons(inputClass) {
 
 const insertExercise = function insertExercise (key, value){
 
+  const day = key.split('-')[0];
+  const headerDay = document.getElementById(`${day}-display`);
 // CHECK IF IT IS REST DAY AND INSERT 'REST DAY' INTO DOM
   if(value === 'on'){
-    let day = key.split('-')[0];
-    const restDay = document.getElementById(`${day}-display`);
     const rest = document.createElement('p');
     rest.innerText = 'Rest day';
-    restDay.insertAdjacentElement('afterend', rest);
+    headerDay.insertAdjacentElement('afterend', rest);
+  } else if(value !== ''){
+
+      // IF NOT A REST DAY, INSERT EXERCISE AND INFO
+      const action = key.split('-')[1];
+      let exerciseBox;
+      let input = [...value]
+
+// TAKES CARE OF DAYS WITH ONLY ONE EXERCISE
+      if(typeof(value) === 'string'){
+        input = [value];
+       }
+
+      for(let i = input.length - 1; i >= 0; i--){
+        if(action === 'exercise'){
+          exerciseBox = document.createElement('div');
+          exerciseBox.style.display = 'flex';
+          exerciseBox.setAttribute('id', `${day}-exercise-box-${i}`);
+          headerDay.insertAdjacentElement('afterend', exerciseBox);
+        }
+
+        const inputValue = document.createElement('p');
+        inputValue.innerText = input[i];
+        exerciseBox = document.getElementById(`${day}-exercise-box-${i}`);
+        exerciseBox.insertAdjacentElement('beforeend', inputValue);
+      }
   }
-
-// NEED TO WRITE CODE TO PUT EXERCISES INTO DOM
-
 }
 
 
@@ -75,18 +94,12 @@ const onCreateWorkout = function onCreateWorkout (event){
 
   request.send(data);
 
-  console.log(JSON.parse(request.response).form);
-
 // PARSES RESPONSE TO JSON AND THEN GETS FORM
   const createdWorkout = JSON.parse(request.response).form
 
-
-
-// ONCE I CAN ACCESS THE FORM DATA I NEED TO CALL FUNCTION IN THIS LOOP TO INSERT ELEMNTS INTO DOM
+// LOOPS THROUGH OBJECT AND CALLS INSERTEXERCISE TO INSERT INFO INTO DOM
   for(const key in createdWorkout){
     const value = createdWorkout[key];
-    console.log(key);
-    console.log(createdWorkout[key])
 
     insertExercise(key, value);
   }
