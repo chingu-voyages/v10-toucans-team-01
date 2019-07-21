@@ -1,7 +1,7 @@
 
 // TO DO:
-// 4. NEED TO CLEAR FORM AFTER SUBMISSION
-// 5. VALIDATE FORM AND REQUIRE ALL FIELDS BE FILLED OUT
+// 6. DISPLAY MESSAGE TO COMPLETE FORM IF NOT VALID
+// 7. CLEAR SUBMISSION FORM WITH FORM.RESET() IF X OR CLOSE PRESSED?
 
 const onAddExercise = function onAddExercise(){
   // get element id
@@ -68,12 +68,22 @@ const insertExercise = function insertExercise (key, value){
         if(action === 'exercise'){
           exerciseBox = document.createElement('div');
           exerciseBox.style.display = 'flex';
+          exerciseBox.classList.add('exercise-box')
           exerciseBox.setAttribute('id', `${day}-exercise-box-${i}`);
           headerDay.insertAdjacentElement('afterend', exerciseBox);
         }
 
         const inputValue = document.createElement('p');
-        inputValue.innerText = input[i];
+
+
+        if(action === 'sets' || action === 'reps'){
+          inputValue.innerText = `${input[i]} ${action}`;
+        }else if(action === 'weight'){
+          inputValue.innerText = `${input[i]} pounds`;
+        }else{
+          inputValue.innerText = input[i];
+        }
+
         exerciseBox = document.getElementById(`${day}-exercise-box-${i}`);
         exerciseBox.insertAdjacentElement('beforeend', inputValue);
       }
@@ -87,22 +97,31 @@ const onCreateWorkout = function onCreateWorkout (event){
   const displaySection = document.getElementById('display-workout-section');
   const form = document.getElementById('workout-form');
 
-  const request = new XMLHttpRequest();
+  if(form.checkValidity()){
+    const request = new XMLHttpRequest();
 
-  request.open('POST', 'https://httpbin.org/post', /* async = */ false);
-  const data = new FormData(form);
+    request.open('POST', 'https://httpbin.org/post', /* async = */ false);
+    const data = new FormData(form);
 
-  request.send(data);
+    request.send(data);
 
-// PARSES RESPONSE TO JSON AND THEN GETS FORM
-  const createdWorkout = JSON.parse(request.response).form
+  // PARSES RESPONSE TO JSON AND THEN GETS FORM
+    const createdWorkout = JSON.parse(request.response).form
 
-// LOOPS THROUGH OBJECT AND CALLS INSERTEXERCISE TO INSERT INFO INTO DOM
-  for(const key in createdWorkout){
-    const value = createdWorkout[key];
+  // LOOPS THROUGH OBJECT AND CALLS INSERTEXERCISE TO INSERT INFO INTO DOM
+    for(const key in createdWorkout){
+      const value = createdWorkout[key];
+      insertExercise(key, value);
+    }
 
-    insertExercise(key, value);
+    form.reset();
+    displaySection.style.display = 'block';
+
+  } else{
+    alert('please complete entire form')
+    console.log('tell person to fill out form')
+
   }
 
-  displaySection.style.display = 'block';
+
 }
