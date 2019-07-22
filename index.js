@@ -118,7 +118,10 @@ const onCreateWorkout = function onCreateWorkout (event){
     displaySection.style.display = 'block';
 
   } else{
-    alert('please complete entire form')
+    // const incompleteModal = document.getElementById('incomplete-form-modal');
+    // incompleteModal.classList.add('show');
+    const incompleteAlert = document.getElementById('incomplete-form-alert');
+    incompleteAlert.classList.add('show');
     console.log('tell person to fill out form')
 
   }
