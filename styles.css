@@ -2,7 +2,7 @@ html {
   font-size: 62.5%;
 }
 
-.header-container {
+.header-container { 
  display: grid;
  grid-template-columns: 20%;
  background-color: #eb1736;
@@ -14,7 +14,6 @@ html {
 .icon-container {
   height: 12em;
   justify-content: center;
-
 }
 
 .icon-container img {
