@@ -1,46 +1,49 @@
 html {
-    font-size: 62.5%;
+  font-size: 62.5%;
 }
 
 .header-container {
-  display: flex;
-  flex-direction: row;
-  background-color: #eb1736;
-  margin: 0;
-  padding-top: 1rem;
-  padding-bottom: 4rem;
-  box-shadow: 0 5px 5px #eb1736;
+ display: grid;
+ grid-template-columns: 20%;
+ background-color: #eb1736;
+ padding-top: 1rem;
+ padding-bottom: 4rem;
+ box-shadow: 0 5px 5px #eb1736;
 }
 
 .icon-container {
-    width: 10em;
-    height: 10em;
-    justify-content: center;
-    margin-right: 11em;
+  height: 12em;
+  justify-content: center;
+
 }
 
 .icon-container img {
-  width: 100%;
+  width: 50%;
   height: auto;
+  grid-column-start: 1;
+  grid-column-end: 3;
   padding-left: 8%;
   filter: drop-shadow(2px 2px 3px #333);
 }
 
 .app-name {
-    margin-top: 3%;
-    font-size: 72px;
-    margin-right: 2.5em;
-    font-size: 7.2rem;
-    padding-top: 1rem;
-    text-shadow: 1px 1px 2px #1d1e22;
-    color: #1d1e22;
+  margin-top: 2%;
+  grid-column-start: 4;
+  grid-column-end: 7;
+  font-size: 7.2rem;
+  padding-top: .2rem;
+  text-shadow: 1px 1px 2px #1d1e22;
+  color: #1d1e22;
 }
 
 .header-container button {
   background-color: #eb1736;
-  margin: 3em 1em 1em 15em;
+  margin: 1em 1em 1em 10em;
+  grid-column-start: 7;
+  grid-column-end: 9;
   padding: 2.5rem 2.5rem 2.5rem 2.5rem;
   border-radius: 8px;
+  font-size: 1.5rem;
 }
 
 
