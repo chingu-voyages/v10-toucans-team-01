@@ -3,9 +3,19 @@ html {
 }
 
 .header-container {
+<<<<<<< HEAD
  display: grid;
  grid-template-columns: 20%;
  background-color: #eb1736
+=======
+  display: flex;
+  flex-direction: row;
+  background-color: #eb1736;
+  margin: 0;
+  padding-top: 1rem;
+  padding-bottom: 4rem;
+  box-shadow: 0 5px 5px #eb1736;
+>>>>>>> 7b67f835f220cd50d1b65067d14e14f23d8f8ec1
 }
 
 .icon-container {
@@ -40,5 +50,8 @@ html {
   grid-column-end: 9;
   padding: 2.5rem 2.5rem 2.5rem 2.5rem;
   border-radius: 8px;
+<<<<<<< HEAD
   font-size: 1.5rem;
+=======
+>>>>>>> 7b67f835f220cd50d1b65067d14e14f23d8f8ec1
 }
