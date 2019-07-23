@@ -14,7 +14,6 @@ html {
 .icon-container {
   height: 12em;
   justify-content: center;
-  
 }
 
 .icon-container img {
@@ -44,4 +43,53 @@ html {
   padding: 2.5rem 2.5rem 2.5rem 2.5rem;
   border-radius: 8px;
   font-size: 1.5rem;
+}
+
+
+/* DISPLAY WORKOUT SECTION */
+#display-workout-section{
+  display: none;
+}
+
+/* Changes order of sets and reps in display */
+.exercise-box :nth-child(1){
+  order: 1;
+}
+
+.exercise-box :nth-child(2){
+  order: 3;
+}
+
+.exercise-box :nth-child(3){
+  order: 2;
+}
+
+.exercise-box :nth-child(4){
+  order: 4;
+}
+
+.exercise-box p{
+  margin: 2rem;
+}
+
+/* STYLE FOR ALERT */
+.alert-container{
+  display: flex;
+  justify-content: center;
+  z-index: 10;
+}
+
+.alert{
+  position: relative;
+  font-size: 1.5rem;
+  display: flex;
+  padding: 5rem;
+  justify-content: space-between;
+}
+
+#incomplete-alert button span{
+  font-size: 2rem;
+  position: absolute;
+  top: 0;
+  margin: .5rem 0 0 2rem;
 }

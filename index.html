@@ -18,7 +18,7 @@
         <button type="button" data-toggle="modal" data-target="#form-modal">Create</button>
       </header>
 
-     
+      <!-- CODE FOR MODAL -->
       <div class="modal fade" id="form-modal">
         <div class="modal-dialog modal-dialog-scrollable">
           <div class="modal-content p-4">
@@ -29,214 +29,248 @@
               </div>
             </div>
             <div class="modal-body">
-              <form id="workout-form">
+              <form id="workout-form" method="post">
                 <div class="day">
                   <h4>Monday</h4>
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox"></input>
-                    <label>Rest day</label>
+                    <input name="monday-rest" class="form-check-input" onchange="disableButtons('monday-non-rest')" type="checkbox"></input>
+                    <label class="ml-3">Rest day</label>
                   </div>
                   <div class="form-row">
                     <div class="col">
                       <label for="exercise">Exercise</label>
-                      <input type="text" class="form-control">
+                      <input name="monday-exercise" type="text" class="form-control monday-non-rest" required>
                     </div>
                     <div class="col">
                       <label for="sets">Sets</label>
-                      <input type="number" class="form-control">
+                      <input name="monday-sets" type="number" class="form-control monday-non-rest" required>
                     </div>
                     <div class="col">
                       <label for="reps">Reps</label>
-                      <input type="number" class="form-control">
+                      <input name="monday-reps" type="number" class="form-control monday-non-rest" required>
                     </div>
                     <div class="col">
                       <label for="weight">Weight</label>
-                      <input type="number" class="form-control">
+                      <input name="monday-weight" type="number" class="form-control monday-non-rest" required>
                     </div>
                   </div>
-                  <button type="button" onclick="onAddExercise()" class="add-exercise btn btn-success mb-2 mt-3" id="add-monday-exercise">Add Exercise</button>
+                  <button type="button" onclick="onAddExercise()" class="add-exercise btn btn-success mb-2 mt-3" id="add-monday-exercise">Add Another Exercise</button>
                   <hr>
                 </div>
 
                 <div class="day">
                   <h4>Tuesday</h4>
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox"></input>
-                    <label>Rest day</label>
+                    <input name="tuesday-rest" class="form-check-input" onchange="disableButtons('tuesday-non-rest')" type="checkbox"></input>
+                    <label class="ml-3">Rest day</label>
                   </div>
                   <div class="form-row">
                     <div class="col">
                       <label for="exercise">Exercise</label>
-                      <input type="text" class="form-control">
+                      <input name="tuesday-exercise" type="text" class="form-control tuesday-non-rest" required>
                     </div>
                     <div class="col">
                       <label for="sets">Sets</label>
-                      <input type="number" class="form-control">
+                      <input name="tuesday-sets" type="number" class="form-control tuesday-non-rest" required>
                     </div>
                     <div class="col">
                       <label for="reps">Reps</label>
-                      <input type="number" class="form-control">
+                      <input name="tuesday-reps" type="number" class="form-control tuesday-non-rest" required>
                     </div>
                     <div class="col">
                       <label for="weight">Weight</label>
-                      <input type="number" class="form-control">
+                      <input name="tuesday-weight" type="number" class="form-control tuesday-non-rest" required>
                     </div>
                   </div>
-                  <button type="button" onclick="onAddExercise()" class="add-exercise btn btn-success mb-2 mt-3" id="add-tuesday-exercise">Add Exercise</button>
+                  <button type="button" onclick="onAddExercise()" class="add-exercise btn btn-success mb-2 mt-3" id="add-tuesday-exercise">Add Another Exercise</button>
                   <hr>
                 </div>
 
                 <div class="day">
                   <h4>Wednesday</h4>
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox"></input>
-                    <label>Rest day</label>
+                    <input name="wednesday-rest" class="form-check-input" onchange="disableButtons('wednesday-non-rest')" type="checkbox"></input>
+                    <label class="ml-3">Rest day</label>
                   </div>
                   <div class="form-row">
                     <div class="col">
                       <label for="exercise">Exercise</label>
-                      <input type="text" class="form-control">
+                      <input name="wednesday-exercise" type="text" class="form-control wednesday-non-rest" required>
                     </div>
                     <div class="col">
                       <label for="sets">Sets</label>
-                      <input type="number" class="form-control">
+                      <input name="wednesday-sets" type="number" class="form-control wednesday-non-rest" required>
                     </div>
                     <div class="col">
                       <label for="reps">Reps</label>
-                      <input type="number" class="form-control">
+                      <input name="wednesday-reps" type="number" class="form-control wednesday-non-rest" required>
                     </div>
                     <div class="col">
                       <label for="weight">Weight</label>
-                      <input type="number" class="form-control">
+                      <input name="wednesday-weight" type="number" class="form-control wednesday-non-rest" required>
                     </div>
                   </div>
-                  <button type="button" onclick="onAddExercise()" class="add-exercise btn btn-success mb-2 mt-3" id="add-wednesday-exercise">Add Exercise</button>
+                  <button type="button" onclick="onAddExercise()" class="add-exercise btn btn-success mb-2 mt-3" id="add-wednesday-exercise">Add Another Exercise</button>
                   <hr>
                 </div>
 
                 <div class="day">
                   <h4>Thursday</h4>
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox"></input>
-                    <label>Rest day</label>
+                    <input name="thursday-rest" class="form-check-input" onchange="disableButtons('thursday-non-rest')" type="checkbox"></input>
+                    <label class="ml-3">Rest day</label>
                   </div>
                   <div class="form-row">
                     <div class="col">
                       <label for="exercise">Exercise</label>
-                      <input type="text" class="form-control">
+                      <input name="thursday-exercise" type="text" class="form-control thursday-non-rest" required>
                     </div>
                     <div class="col">
                       <label for="sets">Sets</label>
-                      <input type="number" class="form-control">
+                      <input name="thursday-sets" type="number" class="form-control thursday-non-rest" required>
                     </div>
                     <div class="col">
                       <label for="reps">Reps</label>
-                      <input type="number" class="form-control">
+                      <input name="thursday-reps" type="number" class="form-control thursday-non-rest" required>
                     </div>
                     <div class="col">
                       <label for="weight">Weight</label>
-                      <input type="number" class="form-control">
+                      <input name="thursday-weight" type="number" class="form-control thursday-non-rest" required>
                     </div>
                   </div>
-                  <button type="button" onclick="onAddExercise()" class="add-exercise btn btn-success mb-2 mt-3" id="add-thursday-exercise">Add Exercise</button>
+                  <button type="button" onclick="onAddExercise()" class="add-exercise btn btn-success mb-2 mt-3" id="add-thursday-exercise">Add Another Exercise</button>
                   <hr>
                 </div>
 
                 <div class="day">
                   <h4>Friday</h4>
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox"></input>
-                    <label>Rest day</label>
+                    <input name="friday-rest" class="form-check-input" onchange="disableButtons('friday-non-rest')" type="checkbox"></input>
+                    <label class="ml-3">Rest day</label>
                   </div>
                   <div class="form-row">
                     <div class="col">
                       <label for="exercise">Exercise</label>
-                      <input type="text" class="form-control">
+                      <input name="friday-exercise" type="text" class="form-control friday-non-rest" required>
                     </div>
                     <div class="col">
                       <label for="sets">Sets</label>
-                      <input type="number" class="form-control">
+                      <input name="friday-sets" type="number" class="form-control friday-non-rest" required>
                     </div>
                     <div class="col">
                       <label for="reps">Reps</label>
-                      <input type="number" class="form-control">
+                      <input name="friday-reps" type="number" class="form-control friday-non-rest" required>
                     </div>
                     <div class="col">
                       <label for="weight">Weight</label>
-                      <input type="number" class="form-control">
+                      <input name="friday-weight" type="number" class="form-control friday-non-rest" required>
                     </div>
                   </div>
-                  <button type="button" onclick="onAddExercise()" class="add-exercise btn btn-success mb-2 mt-3" id="add-friday-exercise">Add Exercise</button>
+                  <button type="button" onclick="onAddExercise()" class="add-exercise btn btn-success mb-2 mt-3" id="add-friday-exercise">Add Another Exercise</button>
                   <hr>
                 </div>
 
                 <div class="day">
                   <h4>Saturday</h4>
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox"></input>
-                    <label>Rest day</label>
+                    <input name="saturday-rest" class="form-check-input" onchange="disableButtons('saturday-non-rest')" type="checkbox"></input>
+                    <label class="ml-3">Rest day</label>
                   </div>
                   <div class="form-row">
                     <div class="col">
                       <label for="exercise">Exercise</label>
-                      <input type="text" class="form-control">
+                      <input name="saturday-exercise" type="text" class="form-control saturday-non-rest" required>
                     </div>
                     <div class="col">
                       <label for="sets">Sets</label>
-                      <input type="number" class="form-control">
+                      <input name="saturday-sets" type="number" class="form-control saturday-non-rest" required>
                     </div>
                     <div class="col">
                       <label for="reps">Reps</label>
-                      <input type="number" class="form-control">
+                      <input name="saturday-reps" type="number" class="form-control saturday-non-rest" required>
                     </div>
                     <div class="col">
                       <label for="weight">Weight</label>
-                      <input type="number" class="form-control">
+                      <input name="saturday-weight" type="number" class="form-control saturday-non-rest" required>
                     </div>
                   </div>
-                  <button type="button" onclick="onAddExercise()" class="add-exercise btn btn-success mb-2 mt-3" id="add-saturday-exercise">Add Exercise</button>
+                  <button type="button" onclick="onAddExercise()" class="add-exercise btn btn-success mb-2 mt-3" id="add-saturday-exercise">Add Another Exercise</button>
                   <hr>
                 </div>
 
                 <div class="day">
                   <h4>Sunday</h4>
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox"></input>
-                    <label>Rest day</label>
+                    <input name="sunday-rest" class="form-check-input" onchange="disableButtons('sunday-non-rest')" type="checkbox"></input>
+                    <label class="ml-3">Rest day</label>
                   </div>
                   <div class="form-row">
                     <div class="col">
                       <label for="exercise">Exercise</label>
-                      <input type="text" class="form-control">
+                      <input name="sunday-exercise" type="text" class="form-control sunday-non-rest" required>
                     </div>
                     <div class="col">
                       <label for="sets">Sets</label>
-                      <input type="number" class="form-control">
+                      <input name="sunday-sets" type="number" class="form-control sunday-non-rest" required>
                     </div>
                     <div class="col">
                       <label for="reps">Reps</label>
-                      <input type="number" class="form-control">
+                      <input name="sunday-reps" type="number" class="form-control sunday-non-rest" required>
                     </div>
                     <div class="col">
                       <label for="weight">Weight</label>
-                      <input type="number" class="form-control">
+                      <input name="sunday-weight" type="number" class="form-control sunday-non-rest" required>
                     </div>
                   </div>
-                  <button type="button" onclick="onAddExercise()" class="add-exercise btn btn-success mb-2 mt-3" id="add-sunday-exercise">Add Exercise</button>
+                  <button type="button" onclick="onAddExercise()" class="add-exercise btn btn-success mb-2 mt-3" id="add-sunday-exercise">Add Another Exercise</button>
                   <hr>
                 </div>
               </form>
             </div>
             <div class="modal-footer d-flex justify-content-between">
-              <button class="create-workout btn btn-primary">Create Workout</button>
-              <button class="btn btn-danger" data-dismiss="modal">Close</button>
+              <button type="submit" class="mt-3 create-workout btn btn-primary" data-dismiss="modal" onclick="onCreateWorkout()">Create Workout</button>
+              <button class="mt-3 btn btn-danger" data-dismiss="modal">Close</button>
             </div>
           </div>
         </div>
       </div>
 
+
+      <section id="display-workout-section">
+        <div class="workout-container">
+          <div id="monday-workout d-flex flex-column">
+            <h5 id="monday-display">Monday</h5>
+          </div>
+
+          <div id="tuesday-workout d-flex flex-column">
+            <h5 id="tuesday-display">Tuesday</h5>
+          </div>
+
+          <div id="wednesday-workout d-flex flex-column">
+            <h5 id="wednesday-display">Wednesday</h5>
+          </div>
+
+          <div id="thursday-workout d-flex flex-column">
+            <h5 id="thursday-display">Thursday</h5>
+          </div>
+
+          <div id="friday-workout d-flex flex-column">
+            <h5 id="friday-display">Friday</h5>
+          </div>
+
+          <div id="saturday-workout d-flex flex-column">
+            <h5 id="saturday-display">Saturday</h5>
+          </div>
+
+          <div id="sunday-workout d-flex flex-column">
+            <h5 id="sunday-display">Sunday</h5>
+          </div>
+        </div>
+      </section>
+
       <footer>
-        </footer>
+      </footer>
+
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
