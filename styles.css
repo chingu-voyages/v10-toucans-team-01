@@ -65,3 +65,29 @@ html {
 .exercise-box :nth-child(4){
   order: 4;
 }
+
+.exercise-box p{
+  margin: 2rem;
+}
+
+/* STYLE FOR ALERT */
+.alert-container{
+  display: flex;
+  justify-content: center;
+  z-index: 10;
+}
+
+.alert{
+  position: relative;
+  font-size: 1.5rem;
+  display: flex;
+  padding: 5rem;
+  justify-content: space-between;
+}
+
+#incomplete-alert button span{
+  font-size: 2rem;
+  position: absolute;
+  top: 0;
+  margin: .5rem 0 0 2rem;
+}
