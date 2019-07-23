@@ -50,16 +50,22 @@ const insertExercise = function insertExercise (key, value){
 
   const day = key.split('-')[0];
   const headerDay = document.getElementById(`${day}-display`);
+  let exerciseBox;
+
 // CHECK IF IT IS REST DAY AND INSERT 'REST DAY' INTO DOM
   if(value === 'on'){
+    exerciseBox = document.createElement('div');
+    exerciseBox.classList.add('exercise-box');
+
     const rest = document.createElement('p');
+    
     rest.innerText = 'Rest day';
-    headerDay.insertAdjacentElement('afterend', rest);
+    exerciseBox.appendChild(rest);
+    headerDay.insertAdjacentElement('afterend', exerciseBox);
   } else if(value !== ''){
 
       // IF NOT A REST DAY, INSERT EXERCISE AND INFO
       const action = key.split('-')[1];
-      let exerciseBox;
       let input = [...value]
 
 // TAKES CARE OF DAYS WITH ONLY ONE EXERCISE CREATES ARRAY INSTEAD OF STRING
@@ -133,7 +139,7 @@ const onCreateWorkout = function onCreateWorkout (){
     // IF NO ALERT EXISTS IN DOM THEN CREATE ONE TO TELL USER TO FILL OUT ENTIRE FORM
     const alertContainer = document.createElement('div');
     alertContainer.classList.add('alert-container');
-    
+
     const incompleteAlert = document.createElement('div');
     incompleteAlert.setAttribute('id', 'incomplete-alert');
 
