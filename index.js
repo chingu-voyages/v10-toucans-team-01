@@ -1,6 +1,8 @@
 
 // TO DO:
 // 7. CLEAR SUBMISSION FORM WITH FORM.RESET() IF X OR CLOSE PRESSED?
+// 8. FORM IS RESET IN ONCREATEWORKOUT METHOD, LOSE DATA WHEN YOU NEED TO EDIT
+// 9. NEED TO MAKE SURE CREATEFORM IS RESET THOUGH..MAYBE
 
 const onAddExercise = function onAddExercise(){
   // get element id
@@ -58,7 +60,6 @@ const insertExercise = function insertExercise (key, value){
     exerciseBox.classList.add('exercise-box');
 
     const rest = document.createElement('p');
-    
     rest.innerText = 'Rest day';
     exerciseBox.appendChild(rest);
     headerDay.insertAdjacentElement('afterend', exerciseBox);
@@ -99,13 +100,19 @@ const insertExercise = function insertExercise (key, value){
   }
 }
 
+// SAVES FORM TO CALL IN EDIT FORM
+const saveForm = function saveForm(){
+  const form = document.getElementById('workout-form');
+  return form;
+}
+
 
 const onCreateWorkout = function onCreateWorkout (){
 
   // GETTING FORM
   const displaySection = document.getElementById('display-workout-section');
-  const form = document.getElementById('workout-form');
-
+  const form = saveForm();
+  // const form = document.getElementById('workout-form');
 
   if(form.checkValidity()){
 
@@ -131,7 +138,15 @@ const onCreateWorkout = function onCreateWorkout (){
       insertExercise(key, value);
     }
 
-    form.reset();
+    // NEED TO FIGURE OUT HOW TO MAKE CREATE DIFFERENT FROM EDIT, BOTH STILL HAVE ALL FORM DATA,
+    // MULTIPLE WORKOUTS, STORED IN ARRAY?
+
+    // if(document.getElementById('display-section')){
+    //   form.reset();
+    // }
+
+
+    // form.reset();
     displaySection.style.display = 'block';
 
   } else if(!document.getElementById('incomplete-alert')){
@@ -157,4 +172,19 @@ const onCreateWorkout = function onCreateWorkout (){
     alertContainer.appendChild(incompleteAlert);
     document.getElementById('form-modal').insertAdjacentElement('afterend', alertContainer);
   }
+}
+
+const onEditWorkout = function onEditWorkout(){
+
+  const editModalBody = document.getElementById('edit-modal-body');
+
+    // WILL NEED TO CLEAR DISPLAY-SECTION DOM BEFORE I INSERT THE EDITTED FORM
+
+
+  editModalBody.insertAdjacentElement('beforeend', saveForm());
+  console.log(saveForm());
+
+  // NEED TO DEAL WITH CHECKED REST DAYS
+
+
 }
