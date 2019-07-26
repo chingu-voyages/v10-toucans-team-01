@@ -3,6 +3,7 @@
 // 7. CLEAR SUBMISSION FORM WITH FORM.RESET() IF X OR CLOSE PRESSED?
 // 8. FORM IS RESET IN ONCREATEWORKOUT METHOD, LOSE DATA WHEN YOU NEED TO EDIT
 // 9. NEED TO MAKE SURE CREATEFORM IS RESET THOUGH..MAYBE
+// 10. NEED TO RESET THE DOM SO IT WILL YOU CANT CREATE WORKOUT ON TOP OF WORKOUT
 
 const onAddExercise = function onAddExercise(){
   // get element id
@@ -102,8 +103,11 @@ const insertExercise = function insertExercise (key, value){
 
 // SAVES FORM TO CALL IN EDIT FORM
 const saveForm = function saveForm(){
-  const form = document.getElementById('workout-form');
-  return form;
+  const savedForm = document.getElementById('workout-form');
+  // const enteredForm = savedForm;
+  // onCreateWorkout(enteredForm);
+
+  return savedForm;
 }
 
 
@@ -113,6 +117,7 @@ const onCreateWorkout = function onCreateWorkout (){
   const displaySection = document.getElementById('display-workout-section');
   const form = saveForm();
   // const form = document.getElementById('workout-form');
+  // const form = enteredForm;
 
   if(form.checkValidity()){
 
@@ -146,7 +151,16 @@ const onCreateWorkout = function onCreateWorkout (){
     // }
 
 
-    // form.reset();
+
+    // ENABLES BUTTONS THAT HAVE BEEN DISABLED TO RESET
+    for(let i = 0; i < form.length; i++){
+      if(form[i].disabled){
+        form[i].disabled = false;
+      }
+    }
+
+    form.reset();
+
     displaySection.style.display = 'block';
 
   } else if(!document.getElementById('incomplete-alert')){
