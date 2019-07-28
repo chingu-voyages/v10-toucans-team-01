@@ -15,7 +15,7 @@
           <img src="images/arm-flex-icon.png" alt="flex icon">
         </div>
         <h1 class="app-name">Workout Planner</h1>
-        <button type="button" data-toggle="modal" data-target="#form-modal">Create</button>
+        <button id="create-button" type="button" data-toggle="modal" data-target="#form-modal">Create</button>
       </header>
 
       <!-- CODE FOR MODAL -->
@@ -238,64 +238,34 @@
 
       <section id="display-workout-section">
         <div class="workout-container">
-          <div id="monday-workout d-flex flex-column">
+          <div id="monday-workout" class="d-flex flex-column">
             <h5 id="monday-display">Monday</h5>
           </div>
 
-          <div id="tuesday-workout d-flex flex-column">
+          <div id="tuesday-workout" class="d-flex flex-column">
             <h5 id="tuesday-display">Tuesday</h5>
           </div>
 
-          <div id="wednesday-workout d-flex flex-column">
+          <div id="wednesday-workout" class="d-flex flex-column">
             <h5 id="wednesday-display">Wednesday</h5>
           </div>
 
-          <div id="thursday-workout d-flex flex-column">
+          <div id="thursday-workout" class="d-flex flex-column">
             <h5 id="thursday-display">Thursday</h5>
           </div>
 
-          <div id="friday-workout d-flex flex-column">
+          <div id="friday-workout" class="d-flex flex-column">
             <h5 id="friday-display">Friday</h5>
           </div>
 
-          <div id="saturday-workout d-flex flex-column">
+          <div id="saturday-workout" class="d-flex flex-column">
             <h5 id="saturday-display">Saturday</h5>
           </div>
 
-          <div id="sunday-workout d-flex flex-column">
+          <div id="sunday-workout" class="d-flex flex-column">
             <h5 id="sunday-display">Sunday</h5>
           </div>
         </div>
-
-        <button id="editButton" type="button"
-                                class="btn btn-success"
-                                data-toggle="modal"
-                                data-target="#edit-workout-modal"
-                                onclick="onEditWorkout()">
-                                Edit Workout
-        </button>
-
-        <!-- EDIT MODAL -->
-        <div class="modal fade" id="edit-workout-modal">
-          <div class="modal-dialog modal-dialog-scrollable">
-            <div class="modal-content p-4">
-              <div class="modal-header">
-                <div class="modal-title d-flex align-items-baseline w-100">
-                  <h5>Workout Form</h5>
-                  <button class="close" data-dismiss="modal">&times;</button>
-                </div>
-              </div>
-              <div id="edit-modal-body" class="modal-body">
-
-              </div>
-              <div class="modal-footer d-flex justify-content-between">
-                <button type="submit" class="mt-3 create-workout btn btn-primary" data-dismiss="modal" onclick="onCreateWorkout()">Create Workout</button>
-                <button class="mt-3 btn btn-danger" data-dismiss="modal">Close</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
       </section>
 
       <footer>

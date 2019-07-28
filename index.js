@@ -1,8 +1,5 @@
 
 // TO DO:
-// 7. CLEAR SUBMISSION FORM WITH FORM.RESET() IF X OR CLOSE PRESSED?
-// 8. FORM IS RESET IN ONCREATEWORKOUT METHOD, LOSE DATA WHEN YOU NEED TO EDIT
-// 9. NEED TO MAKE SURE CREATEFORM IS RESET THOUGH..MAYBE
 // 10. NEED TO RESET THE DOM SO IT WILL YOU CANT CREATE WORKOUT ON TOP OF WORKOUT
 
 const onAddExercise = function onAddExercise(){
@@ -50,7 +47,6 @@ const disableButtons = function disableButtons(inputClass) {
 
 
 const insertExercise = function insertExercise (key, value){
-
   const day = key.split('-')[0];
   const headerDay = document.getElementById(`${day}-display`);
   let exerciseBox;
@@ -101,23 +97,20 @@ const insertExercise = function insertExercise (key, value){
   }
 }
 
-// SAVES FORM TO CALL IN EDIT FORM
-const saveForm = function saveForm(){
-  const savedForm = document.getElementById('workout-form');
-  // const enteredForm = savedForm;
-  // onCreateWorkout(enteredForm);
-
-  return savedForm;
-}
-
-
 const onCreateWorkout = function onCreateWorkout (){
+
+// TRYING TO CLEAR DOM SO EDIT WORKOUT WORKS PROPERLY
+// DOESNT WORK WITH CERTAIN REST DAYS
+  if(document.getElementsByClassName('exercise-box')){
+    const exerciseBoxes = document.getElementsByClassName('exercise-box');
+    for(let i = 0; i < exerciseBoxes.length; i++){
+      exerciseBoxes[i].parentNode.removeChild(exerciseBoxes[i]);
+    }
+  }
 
   // GETTING FORM
   const displaySection = document.getElementById('display-workout-section');
-  const form = saveForm();
-  // const form = document.getElementById('workout-form');
-  // const form = enteredForm;
+  const form = document.getElementById('workout-form');
 
   if(form.checkValidity()){
 
@@ -143,24 +136,15 @@ const onCreateWorkout = function onCreateWorkout (){
       insertExercise(key, value);
     }
 
-    // NEED TO FIGURE OUT HOW TO MAKE CREATE DIFFERENT FROM EDIT, BOTH STILL HAVE ALL FORM DATA,
-    // MULTIPLE WORKOUTS, STORED IN ARRAY?
 
-    // if(document.getElementById('display-section')){
-    //   form.reset();
-    // }
-
-
-
-    // ENABLES BUTTONS THAT HAVE BEEN DISABLED TO RESET
+    // KEEPS BUTTONS DISBALED WHEN CHECKED
     for(let i = 0; i < form.length; i++){
       if(form[i].disabled){
-        form[i].disabled = false;
+        form[i].disabled = true;
       }
     }
 
-    form.reset();
-
+    document.getElementById('create-button').innerText = 'Edit';
     displaySection.style.display = 'block';
 
   } else if(!document.getElementById('incomplete-alert')){
@@ -186,19 +170,4 @@ const onCreateWorkout = function onCreateWorkout (){
     alertContainer.appendChild(incompleteAlert);
     document.getElementById('form-modal').insertAdjacentElement('afterend', alertContainer);
   }
-}
-
-const onEditWorkout = function onEditWorkout(){
-
-  const editModalBody = document.getElementById('edit-modal-body');
-
-    // WILL NEED TO CLEAR DISPLAY-SECTION DOM BEFORE I INSERT THE EDITTED FORM
-
-
-  editModalBody.insertAdjacentElement('beforeend', saveForm());
-  console.log(saveForm());
-
-  // NEED TO DEAL WITH CHECKED REST DAYS
-
-
 }
