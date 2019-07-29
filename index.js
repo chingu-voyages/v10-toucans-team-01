@@ -1,6 +1,5 @@
 
 // TO DO:
-// 10. NEED TO RESET THE DOM SO IT WILL YOU CANT CREATE WORKOUT ON TOP OF WORKOUT
 
 const onAddExercise = function onAddExercise(){
   // get element id
@@ -97,16 +96,19 @@ const insertExercise = function insertExercise (key, value){
   }
 }
 
-const onCreateWorkout = function onCreateWorkout (){
-
-// TRYING TO CLEAR DOM SO EDIT WORKOUT WORKS PROPERLY
-// DOESNT WORK WITH CERTAIN REST DAYS
+const checkDOM = function checkDOM () {
   if(document.getElementsByClassName('exercise-box')){
     const exerciseBoxes = document.getElementsByClassName('exercise-box');
     for(let i = 0; i < exerciseBoxes.length; i++){
-      exerciseBoxes[i].parentNode.removeChild(exerciseBoxes[i]);
+      while(exerciseBoxes[i]){
+        exerciseBoxes[i].remove();
+      }
     }
   }
+}
+
+const onCreateWorkout = function onCreateWorkout (){
+  checkDOM();
 
   // GETTING FORM
   const displaySection = document.getElementById('display-workout-section');
