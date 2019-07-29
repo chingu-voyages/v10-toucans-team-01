@@ -111,7 +111,6 @@ const onCreateWorkout = function onCreateWorkout (){
   checkDOM();
 
   // GETTING FORM
-  const displaySection = document.getElementById('display-workout-section');
   const form = document.getElementById('workout-form');
 
   if(form.checkValidity()){
@@ -147,7 +146,10 @@ const onCreateWorkout = function onCreateWorkout (){
     }
 
     document.getElementById('create-button').innerText = 'Edit';
-    displaySection.style.display = 'block';
+    const displaySection = document.getElementById('display-workout-section');
+    const workoutWrapper = document.getElementById('workout-wrapper');
+    workoutWrapper.style.display = 'block';
+    displaySection.appendChild(workoutWrapper);
 
   } else if(!document.getElementById('incomplete-alert')){
 
@@ -173,3 +175,10 @@ const onCreateWorkout = function onCreateWorkout (){
     document.getElementById('form-modal').insertAdjacentElement('afterend', alertContainer);
   }
 }
+
+const getYear = function getYear(){
+  const date = new Date();
+  document.getElementById('year').innerText = date.getFullYear();
+}
+
+getYear();
