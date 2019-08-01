@@ -43,10 +43,20 @@ const disableButtons = function disableButtons(inputClass) {
   addExerciseButton.disabled = restDay[0].checked;
 }
 
+const addTodayClass = function addTodayClass(day){
+  const today = new Date();
+
+  if(day === today.getDay()){
+    document.getElementById(`${day}-workout`).classList.add('today');
+  }
+}
 
 
 const insertExercise = function insertExercise (key, value){
   const day = key.split('-')[0];
+
+  addTodayClass(day);
+
   const headerDay = document.getElementById(`${day}-display`);
   let exerciseBox;
 

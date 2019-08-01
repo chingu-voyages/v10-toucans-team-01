@@ -126,3 +126,8 @@ html {
 .ryan-section{
   text-align: center;
 }
+
+/* TODAY CLASS */
+.today{
+  background-color: yellow;
+}
