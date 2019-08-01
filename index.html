@@ -15,7 +15,7 @@
           <img src="images/arm-flex-icon.png" alt="flex icon">
         </div>
         <h1 class="app-name">Workout Planner</h1>
-        <button type="button" data-toggle="modal" data-target="#form-modal">Create</button>
+        <button id="create-button" type="button" data-toggle="modal" data-target="#form-modal">Create</button>
       </header>
 
       <!-- CODE FOR MODAL -->
@@ -237,38 +237,52 @@
 
 
       <section id="display-workout-section">
-        <div class="workout-container">
-          <div id="monday-workout d-flex flex-column">
+        <div id="workout-wrapper" class="workout-container">
+          <div id="monday-workout" class="d-flex flex-column">
             <h5 id="monday-display">Monday</h5>
           </div>
 
-          <div id="tuesday-workout d-flex flex-column">
+          <div id="tuesday-workout" class="d-flex flex-column">
             <h5 id="tuesday-display">Tuesday</h5>
           </div>
 
-          <div id="wednesday-workout d-flex flex-column">
+          <div id="wednesday-workout" class="d-flex flex-column">
             <h5 id="wednesday-display">Wednesday</h5>
           </div>
 
-          <div id="thursday-workout d-flex flex-column">
+          <div id="thursday-workout" class="d-flex flex-column">
             <h5 id="thursday-display">Thursday</h5>
           </div>
 
-          <div id="friday-workout d-flex flex-column">
+          <div id="friday-workout" class="d-flex flex-column">
             <h5 id="friday-display">Friday</h5>
           </div>
 
-          <div id="saturday-workout d-flex flex-column">
+          <div id="saturday-workout" class="d-flex flex-column">
             <h5 id="saturday-display">Saturday</h5>
           </div>
 
-          <div id="sunday-workout d-flex flex-column">
+          <div id="sunday-workout" class="d-flex flex-column">
             <h5 id="sunday-display">Sunday</h5>
           </div>
         </div>
       </section>
 
-      <footer>
+      <footer id="footer-section">
+        <div class="footer-container">
+        <div class="nick-section">
+          <h5>Nick Phillips</h5>
+          <a href="https://itsnickphillips.com/" target="_blank">Website</a>
+        </div>
+        <div class="together-section">
+          <p>Designed and coded by Nick Phillips and Ryan Wardle</p>
+          <p>Copyright &copy; <span id="year"></span></p>
+        </div>
+        <div class="ryan-section">
+          <h5>Ryan Wardle</h5>
+          <a href="https://www.ryanwardle.com/" target="_blank">Portfolio Website</a>
+        </div>
+        </div>
       </footer>
 
 

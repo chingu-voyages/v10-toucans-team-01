@@ -2,7 +2,7 @@ html {
   font-size: 62.5%;
 }
 
-.header-container { 
+.header-container {
  display: grid;
  grid-template-columns: 20%;
  background-color: #eb1736;
@@ -48,6 +48,10 @@ html {
 
 /* DISPLAY WORKOUT SECTION */
 #display-workout-section{
+  min-height: 90vh;
+}
+
+#workout-wrapper{
   display: none;
 }
 
@@ -92,4 +96,33 @@ html {
   position: absolute;
   top: 0;
   margin: .5rem 0 0 2rem;
+}
+
+/* FOOTER */
+.footer-container{
+  display: grid;
+  grid-template-columns: 33%;
+  background-color: #eb1736;
+  padding: 5rem 0 3rem 0;
+}
+
+.nick-section{
+  grid-column-start: 1;
+  grid-column-end: 2;
+}
+
+.together-section{
+  grid-column-start: 2;
+  grid-column-end: 3;
+}
+
+.ryan-section{
+  grid-column-start: 3;
+  grid-column-end: 4;
+}
+
+.nick-section,
+.together-section,
+.ryan-section{
+  text-align: center;
 }

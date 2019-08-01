@@ -1,6 +1,5 @@
 
 // TO DO:
-// 7. CLEAR SUBMISSION FORM WITH FORM.RESET() IF X OR CLOSE PRESSED?
 
 const onAddExercise = function onAddExercise(){
   // get element id
@@ -47,7 +46,6 @@ const disableButtons = function disableButtons(inputClass) {
 
 
 const insertExercise = function insertExercise (key, value){
-
   const day = key.split('-')[0];
   const headerDay = document.getElementById(`${day}-display`);
   let exerciseBox;
@@ -58,7 +56,6 @@ const insertExercise = function insertExercise (key, value){
     exerciseBox.classList.add('exercise-box');
 
     const rest = document.createElement('p');
-    
     rest.innerText = 'Rest day';
     exerciseBox.appendChild(rest);
     headerDay.insertAdjacentElement('afterend', exerciseBox);
@@ -99,13 +96,22 @@ const insertExercise = function insertExercise (key, value){
   }
 }
 
+const checkDOM = function checkDOM () {
+  if(document.getElementsByClassName('exercise-box')){
+    const exerciseBoxes = document.getElementsByClassName('exercise-box');
+    for(let i = 0; i < exerciseBoxes.length; i++){
+      while(exerciseBoxes[i]){
+        exerciseBoxes[i].remove();
+      }
+    }
+  }
+}
 
 const onCreateWorkout = function onCreateWorkout (){
+  checkDOM();
 
   // GETTING FORM
-  const displaySection = document.getElementById('display-workout-section');
   const form = document.getElementById('workout-form');
-
 
   if(form.checkValidity()){
 
@@ -131,8 +137,19 @@ const onCreateWorkout = function onCreateWorkout (){
       insertExercise(key, value);
     }
 
-    form.reset();
-    displaySection.style.display = 'block';
+
+    // KEEPS BUTTONS DISBALED WHEN CHECKED
+    for(let i = 0; i < form.length; i++){
+      if(form[i].disabled){
+        form[i].disabled = true;
+      }
+    }
+
+    document.getElementById('create-button').innerText = 'Edit';
+    const displaySection = document.getElementById('display-workout-section');
+    const workoutWrapper = document.getElementById('workout-wrapper');
+    workoutWrapper.style.display = 'block';
+    displaySection.appendChild(workoutWrapper);
 
   } else if(!document.getElementById('incomplete-alert')){
 
@@ -158,3 +175,10 @@ const onCreateWorkout = function onCreateWorkout (){
     document.getElementById('form-modal').insertAdjacentElement('afterend', alertContainer);
   }
 }
+
+const getYear = function getYear(){
+  const date = new Date();
+  document.getElementById('year').innerText = date.getFullYear();
+}
+
+getYear();
