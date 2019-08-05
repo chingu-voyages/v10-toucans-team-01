@@ -1,5 +1,6 @@
 
-// TO DO:
+// TO DO:1. MAKE SURE CARDS ARE CREATED PROPERLY WITH THE EXERCISES INSERTED IN THEM
+        // 2. MAKE SURE DOM IS CLEARED ROPERLY, I THINK IT IS AN ISSUE #1 IS MORE THE PROBLEM
 
 const onAddExercise = function onAddExercise(){
   // get element id
@@ -45,12 +46,20 @@ const disableButtons = function disableButtons(inputClass) {
 
 
 
+// NEED TO CREATE A CARD EVERTIME THE FIRST EXERCISE IS READ OR WHEN THE CHECK VALUE IS ON
 const insertExercise = function insertExercise (key, value){
   const day = key.split('-')[0];
-  const headerDay = document.getElementById(`${day}-display`);
+  const workoutDay = document.getElementById(`${day}-workout`);
   let exerciseBox;
+  let exerciseCard;
+  let cardHeader;
+  let cardBody;
+  let cardTitle;
+  let cardText;
+
 
 // CHECK IF IT IS REST DAY AND INSERT 'REST DAY' INTO DOM
+//*************NEED TO CHANGE TO MAKE REST DAY TO TEXT ON CARD
   if(value === 'on'){
     exerciseBox = document.createElement('div');
     exerciseBox.classList.add('exercise-box');
@@ -58,7 +67,7 @@ const insertExercise = function insertExercise (key, value){
     const rest = document.createElement('p');
     rest.innerText = 'Rest day';
     exerciseBox.appendChild(rest);
-    headerDay.insertAdjacentElement('afterend', exerciseBox);
+    workoutDay.insertAdjacentElement('afterend', exerciseBox);
   } else if(value !== ''){
 
       // IF NOT A REST DAY, INSERT EXERCISE AND INFO
@@ -72,11 +81,39 @@ const insertExercise = function insertExercise (key, value){
 
       for(let i = input.length - 1; i >= 0; i--){
         if(action === 'exercise'){
-          exerciseBox = document.createElement('div');
-          exerciseBox.style.display = 'flex';
-          exerciseBox.classList.add('exercise-box')
-          exerciseBox.setAttribute('id', `${day}-exercise-box-${i}`);
-          headerDay.insertAdjacentElement('afterend', exerciseBox);
+
+          // CREATE CARD
+          exerciseCard = document.createElement('div');
+          exerciseCard.classList.add('card');
+          exerciseCard.style.maxWidth = '100%';
+
+          // CREATE AND INSERT HEADER
+          cardHeader = document.createElement('div');
+          cardHeader.classList.add('card-header');
+          cardHeader.innerText = day;
+          exerciseCard.insertAdjacentElement('afterbegin', cardHeader);
+
+          // CREATE AND INSERT CARD BODY
+          cardBody = document.createElement('div');
+          cardBody.classList.add('card-body');
+          cardHeader.insertAdjacentElement('afterend', cardBody);
+
+          // CREATE AMD INSERT CARD TITLE
+          cardTitle = document.createElement('h4');
+          cardTitle.innerText = `Here is your work out for ${day}`;
+          cardTitle.classList.add('card-title');
+          cardBody.insertAdjacentElement('afterbegin', cardTitle);
+
+          // CREATE CARD TEXT
+          cardText = document.createElement('div');
+          cardText.classList.add('card-text');
+          cardText.classList.add('exercise-box');
+          cardText.style.display = 'flex';
+          cardText.setAttribute('id', `${day}-exercise-box-${i}`);
+
+          cardTitle.insertAdjacentElement('afterend', cardText);
+
+          workoutDay.insertAdjacentElement('afterend', exerciseCard);
         }
 
         const inputValue = document.createElement('p');
@@ -90,18 +127,20 @@ const insertExercise = function insertExercise (key, value){
           inputValue.innerText = input[i];
         }
 
-        exerciseBox = document.getElementById(`${day}-exercise-box-${i}`);
-        exerciseBox.insertAdjacentElement('beforeend', inputValue);
+          // INSERT EXRCISEES INTO CARD TEXT
+          document.getElementById(`${day}-exercise-box-${i}`).insertAdjacentElement('beforeend', inputValue);
       }
   }
 }
 
+
+// NEED TO REWRITE TO FIX IT SO THAT EACH EXERCISE IS IN CARD BODY
 const checkDOM = function checkDOM () {
-  if(document.getElementsByClassName('exercise-box')){
-    const exerciseBoxes = document.getElementsByClassName('exercise-box');
-    for(let i = 0; i < exerciseBoxes.length; i++){
-      while(exerciseBoxes[i]){
-        exerciseBoxes[i].remove();
+  if(document.getElementsByClassName('card')){
+    const cards = document.getElementsByClassName('card');
+    for(let i = 0; i < cards.length; i++){
+      while(cards[i]){
+        cards[i].remove();
       }
     }
   }
