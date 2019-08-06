@@ -1,6 +1,5 @@
 
-// TO DO:1. MAKE SURE CARDS ARE CREATED PROPERLY WITH THE EXERCISES INSERTED IN THEM
-        // 2. MAKE SURE DOM IS CLEARED ROPERLY, I THINK IT IS AN ISSUE #1 IS MORE THE PROBLEM
+// TO DO:1. NEED TO MAKE SURE PROPER DAT IS ON CARDS
 
 const onAddExercise = function onAddExercise(){
   // get element id
@@ -51,23 +50,20 @@ const insertExercise = function insertExercise (key, value){
   const day = key.split('-')[0];
   const workoutDay = document.getElementById(`${day}-workout`);
   let exerciseBox;
-  let exerciseCard;
-  let cardHeader;
-  let cardBody;
-  let cardTitle;
   let cardText;
+  let cardTitle;
 
 
 // CHECK IF IT IS REST DAY AND INSERT 'REST DAY' INTO DOM
-//*************NEED TO CHANGE TO MAKE REST DAY TO TEXT ON CARD
   if(value === 'on'){
     exerciseBox = document.createElement('div');
     exerciseBox.classList.add('exercise-box');
 
     const rest = document.createElement('p');
     rest.innerText = 'Rest day';
+    cardText = document.getElementById(`${day}-card-text`);
     exerciseBox.appendChild(rest);
-    workoutDay.insertAdjacentElement('afterend', exerciseBox);
+    cardText.insertAdjacentElement('afterbegin', exerciseBox);
   } else if(value !== ''){
 
       // IF NOT A REST DAY, INSERT EXERCISE AND INFO
@@ -82,38 +78,12 @@ const insertExercise = function insertExercise (key, value){
       for(let i = input.length - 1; i >= 0; i--){
         if(action === 'exercise'){
 
-          // CREATE CARD
-          exerciseCard = document.createElement('div');
-          exerciseCard.classList.add('card');
-          exerciseCard.style.maxWidth = '100%';
-
-          // CREATE AND INSERT HEADER
-          cardHeader = document.createElement('div');
-          cardHeader.classList.add('card-header');
-          cardHeader.innerText = day;
-          exerciseCard.insertAdjacentElement('afterbegin', cardHeader);
-
-          // CREATE AND INSERT CARD BODY
-          cardBody = document.createElement('div');
-          cardBody.classList.add('card-body');
-          cardHeader.insertAdjacentElement('afterend', cardBody);
-
-          // CREATE AMD INSERT CARD TITLE
-          cardTitle = document.createElement('h4');
-          cardTitle.innerText = `Here is your work out for ${day}`;
-          cardTitle.classList.add('card-title');
-          cardBody.insertAdjacentElement('afterbegin', cardTitle);
-
-          // CREATE CARD TEXT
           cardText = document.createElement('div');
-          cardText.classList.add('card-text');
           cardText.classList.add('exercise-box');
           cardText.style.display = 'flex';
-          cardText.setAttribute('id', `${day}-exercise-box-${i}`);
-
+          cardText.setAttribute('id', `${day}-exercise-box-${i}`)
+          cardTitle = document.getElementById(`${day}-card-title`)
           cardTitle.insertAdjacentElement('afterend', cardText);
-
-          workoutDay.insertAdjacentElement('afterend', exerciseCard);
         }
 
         const inputValue = document.createElement('p');
@@ -134,13 +104,12 @@ const insertExercise = function insertExercise (key, value){
 }
 
 
-// NEED TO REWRITE TO FIX IT SO THAT EACH EXERCISE IS IN CARD BODY
 const checkDOM = function checkDOM () {
-  if(document.getElementsByClassName('card')){
-    const cards = document.getElementsByClassName('card');
-    for(let i = 0; i < cards.length; i++){
-      while(cards[i]){
-        cards[i].remove();
+  if(document.getElementsByClassName('exercise-box')){
+    const exerciseBoxes = document.getElementsByClassName('exercise-box');
+    for(let i = 0; i < exerciseBoxes.length; i++){
+      while(exerciseBoxes[i]){
+        exerciseBoxes[i].remove();
       }
     }
   }
@@ -148,7 +117,6 @@ const checkDOM = function checkDOM () {
 
 const onCreateWorkout = function onCreateWorkout (){
   checkDOM();
-
   // GETTING FORM
   const form = document.getElementById('workout-form');
 
