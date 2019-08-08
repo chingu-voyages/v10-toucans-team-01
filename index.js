@@ -43,6 +43,18 @@ const disableButtons = function disableButtons(inputClass) {
   addExerciseButton.disabled = restDay[0].checked;
 }
 
+const setDate = function setDate(day){
+  // const months = ['January', 'February', 'March', 'April', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  const daySpan = document.getElementById(`${day}-span`);
+  daySpan.innerText = day[0].toUpperCase().concat(day.slice(1));
+  // const startDate = new Date();
+  // startDate.setDate(startDate.getDate());
+  // const targetDay = startDate.getDate();
+  // const month = startDate.getMonth();
+  // const year = startDate.getFullYear();
+  //
+  // daySpan.innerText = `${day[0].toUpperCase().concat(day.slice(1))} ${months[month]} ${targetDay} ${year}`;
+}
 
 
 // NEED TO CREATE A CARD EVERTIME THE FIRST EXERCISE IS READ OR WHEN THE CHECK VALUE IS ON
@@ -56,6 +68,7 @@ const insertExercise = function insertExercise (key, value){
 
 // CHECK IF IT IS REST DAY AND INSERT 'REST DAY' INTO DOM
   if(value === 'on'){
+    setDate(day);
     exerciseBox = document.createElement('div');
     exerciseBox.classList.add('exercise-box');
 
@@ -77,7 +90,7 @@ const insertExercise = function insertExercise (key, value){
 
       for(let i = input.length - 1; i >= 0; i--){
         if(action === 'exercise'){
-
+          setDate(day);
           cardText = document.createElement('div');
           cardText.classList.add('exercise-box');
           cardText.style.display = 'flex';
