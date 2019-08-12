@@ -1,6 +1,3 @@
-
-// TO DO:
-
 const onAddExercise = function onAddExercise(){
   // get element id
   const id = event.target.id;
@@ -43,22 +40,32 @@ const disableButtons = function disableButtons(inputClass) {
   addExerciseButton.disabled = restDay[0].checked;
 }
 
+const setDate = function setDate(day){
+  const daySpan = document.getElementById(`${day}-span`);
+  daySpan.innerText = day[0].toUpperCase().concat(day.slice(1));
+}
 
 
+// NEED TO CREATE A CARD EVERTIME THE FIRST EXERCISE IS READ OR WHEN THE CHECK VALUE IS ON
 const insertExercise = function insertExercise (key, value){
   const day = key.split('-')[0];
-  const headerDay = document.getElementById(`${day}-display`);
+  const workoutDay = document.getElementById(`${day}-workout`);
   let exerciseBox;
+  let cardText;
+  let cardTitle;
+
 
 // CHECK IF IT IS REST DAY AND INSERT 'REST DAY' INTO DOM
   if(value === 'on'){
+    setDate(day);
     exerciseBox = document.createElement('div');
     exerciseBox.classList.add('exercise-box');
 
     const rest = document.createElement('p');
     rest.innerText = 'Rest day';
+    cardText = document.getElementById(`${day}-card-text`);
     exerciseBox.appendChild(rest);
-    headerDay.insertAdjacentElement('afterend', exerciseBox);
+    cardText.insertAdjacentElement('afterbegin', exerciseBox);
   } else if(value !== ''){
 
       // IF NOT A REST DAY, INSERT EXERCISE AND INFO
@@ -72,11 +79,13 @@ const insertExercise = function insertExercise (key, value){
 
       for(let i = input.length - 1; i >= 0; i--){
         if(action === 'exercise'){
-          exerciseBox = document.createElement('div');
-          exerciseBox.style.display = 'flex';
-          exerciseBox.classList.add('exercise-box')
-          exerciseBox.setAttribute('id', `${day}-exercise-box-${i}`);
-          headerDay.insertAdjacentElement('afterend', exerciseBox);
+          setDate(day);
+          cardText = document.createElement('div');
+          cardText.classList.add('exercise-box');
+          cardText.style.display = 'flex';
+          cardText.setAttribute('id', `${day}-exercise-box-${i}`)
+          cardTitle = document.getElementById(`${day}-card-title`)
+          cardTitle.insertAdjacentElement('afterend', cardText);
         }
 
         const inputValue = document.createElement('p');
@@ -90,11 +99,12 @@ const insertExercise = function insertExercise (key, value){
           inputValue.innerText = input[i];
         }
 
-        exerciseBox = document.getElementById(`${day}-exercise-box-${i}`);
-        exerciseBox.insertAdjacentElement('beforeend', inputValue);
+          // INSERT EXRCISEES INTO CARD TEXT
+          document.getElementById(`${day}-exercise-box-${i}`).insertAdjacentElement('beforeend', inputValue);
       }
   }
 }
+
 
 const checkDOM = function checkDOM () {
   if(document.getElementsByClassName('exercise-box')){
@@ -109,7 +119,6 @@ const checkDOM = function checkDOM () {
 
 const onCreateWorkout = function onCreateWorkout (){
   checkDOM();
-
   // GETTING FORM
   const form = document.getElementById('workout-form');
 
