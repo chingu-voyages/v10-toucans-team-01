@@ -1,6 +1,3 @@
-
-// TO DO:1. NEED TO MAKE SURE PROPER DAT IS ON CARDS
-
 const onAddExercise = function onAddExercise(){
   // get element id
   const id = event.target.id;
@@ -44,16 +41,8 @@ const disableButtons = function disableButtons(inputClass) {
 }
 
 const setDate = function setDate(day){
-  // const months = ['January', 'February', 'March', 'April', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
   const daySpan = document.getElementById(`${day}-span`);
   daySpan.innerText = day[0].toUpperCase().concat(day.slice(1));
-  // const startDate = new Date();
-  // startDate.setDate(startDate.getDate());
-  // const targetDay = startDate.getDate();
-  // const month = startDate.getMonth();
-  // const year = startDate.getFullYear();
-  //
-  // daySpan.innerText = `${day[0].toUpperCase().concat(day.slice(1))} ${months[month]} ${targetDay} ${year}`;
 }
 
 
